@@ -6,6 +6,7 @@ import connectCloudinary from './config/cloudinary.js'
 import adminRouter from './routes/adminRoute.js'
 import doctorRouter from './routes/doctorRoute.js'
 import userRouter from './routes/userRoute.js'
+import { error } from 'console'
 
 
 // app config 
@@ -28,6 +29,12 @@ app.use('/api/user',userRouter)
 
 app.get('/',(req,res)=>{
     res.send('API WORKING')
+})
+app.get('/',(req,res)=>{
+    res.send({
+        activeStatus:true,
+        error:false,
+    })
 })
 
 app.listen(port,()=> console.log("Server started",port))
